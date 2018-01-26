@@ -15,13 +15,15 @@ ortschaft varchar(50) not null,
 telefonnummer varchar(15) not null,
 emailadresse varchar(50) not null unique,
 mitgliedschaft varchar not null,
-vita varchar not null,
 PRIMARY KEY (mitglieder_id)
 );
 
-create table Benutzer(
-benutzer_id int identity(1,1),
-emailadresse varchar(50) not null unique,
-passwort varchar(50) not null,
-FOREIGN KEY (emailadresse) REFERENCES mitglieder(emailadresse)
+create table Bilder(
+bilder_id int identity(1,1),
+bildname varchar(50) not null,
+beschreibung varchar(300),
+vita varchar(300),
+dateipfad varchar(max) not null,
+id_mitglieder int not null,
+FOREIGN KEY (id_mitglieder) REFERENCES Mitglieder(mitglieder_id)
 );
